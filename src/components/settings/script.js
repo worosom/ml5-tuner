@@ -4,9 +4,17 @@ export default {
       inputs: [{deviceId: "default"}]
     }
   },
-  async mounted() {
-    const devices = await navigator.mediaDevices.enumerateDevices()
-    this.inputs = devices.filter((d) => d.kind === 'audioinput')
+  mounted() {
+    this.updateInputs()
+  },
+  methods: {
+    async enumerateInputs() {
+      const devices = await navigator.mediaDevices.enumerateDevices()
+      return devices.filter((d) => d.kind === 'audioinput')
+    },
+    async updateInputs() {
+      this.inputs = await this.enumerateInputs()
+    }
   },
   computed: {
     tuning: {

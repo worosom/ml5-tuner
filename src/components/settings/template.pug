@@ -1,5 +1,5 @@
 .settings
-  .setting(v-if="inputs.length > 1")
+  .setting(v-if="inputs.length > 1" v-on:click="updateInputs()")
     label Input Selection:
     select(v-model="input"
       v-on:input="(e) => $emit('inputChange', e.target.value)")
