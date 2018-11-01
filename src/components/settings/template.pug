@@ -1,0 +1,15 @@
+.settings
+  .setting
+    label Input Selection:
+    select(v-model="input"
+      v-on:input="(e) => $emit('inputChange', e.target.value)")
+      option(v-for="_input in inputs"
+        selected="_input.deviceId === input.deviceId"
+        :value="_input.deviceId") {{_input.label}}
+  .setting
+    label Tuning:
+    input(v-model="tuning"
+      v-on:input="(e) => $emit('tuningChange', e.target.value)"
+      type="number"
+      min="1")
+    label  Hz

@@ -1,0 +1,27 @@
+#tuner.wrapper(:data-tuned="tuned")
+  .note_freq
+    #note {{note.note + octave}}
+    #freq {{frequency}} Hz
+  .gauge
+    svg#gauge(viewBox=[0, 0, 300, 20].join(' ')
+      xmlns='http://www.w3.org/2000/svg'
+      xmlns:xlink='http://www.w3.org/1999/xlink')
+      - var x = 0
+      while x <= 300
+        if x % 50 == 0
+          line(class='st0 zero' x1=x y1="0" x2=x y2="20")
+        else
+          line(class='st0' x1=x y1="4" x2=x y2="16")
+        - x += 10
+      - x = 0
+      while x <= 300
+        if x % 10 !== 0
+          if x % 5 == 0
+            line(class=`st0 line_${x}` x1=x y1="6" x2=x y2="14")
+          else
+            line(class=`st0 line_${x}` x1=x y1="8" x2=x y2="12")
+        - x += 1
+    #needle.needle
+      .cent {{cent > 0 ? '+' : ''}}{{Math.round(cent)}}
+  settings(v-on:inputChange="(e) => inputChange(e)"
+    v-on:tuningChange="(e) => tuningChange(e)")

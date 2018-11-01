@@ -1,0 +1,28 @@
+label
+  color: #AAA
+  padding-right: 1rem
+
+.setting
+  text-align: center
+  &:not(:last-child)
+    margin-bottom: 1rem
+
+select,
+input
+  font-family "Source Code Pro", monospace
+  font-size: 1rem
+  height: 2rem
+  background-color: #AAA
+  border: none
+
+input
+  border-radius: 5px
+  padding-left: 1rem
+  position: relative
+  width: 50px
+  &::before
+    content: "Hz"
+    color: #000
+    position: absolute
+    right: 0
+    top: 0

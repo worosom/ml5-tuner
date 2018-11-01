@@ -1,0 +1,118 @@
+primary = #3A3A66
+secondary = #AAA
+tuned = rgba(60,200,30, .7)
+orange = rgba(200,200,0,.5)
+
+svg
+  will-change: transform
+  transition: transform 200ms ease-in
+  .st0
+    stroke: orange
+    stroke-width: 0.4
+  .zero
+    stroke: tuned
+  for x in (144..156)
+    if x > 144 and x < 156
+      .line_{x}
+        stroke: tuned
+
+.wrapper
+  background-color: primary
+  height: 100%
+  display: grid
+  align-content: baseline
+  justify-items: center
+  grid-template-columns: 100%
+  grid-template-rows: auto 35vw
+  overflow-x: hidden
+
+  .note_freq
+    text-align: center
+    color: secondary
+    height: 10vw
+    font-size: 4vw
+    padding-bottom: 2rem
+    position: relative
+    transition: color 200ms ease
+    width: 100%
+    will-change: color
+    &::before
+      position: absolute
+      left: 0
+      top: 0
+      content: ""
+      border-top: 6vw solid transparent
+      border-bottom: 6vw solid transparent
+      border-left: 6vw solid tuned
+      will-change: visibility
+    &::after
+      position: absolute
+      right: 0
+      top: 0
+      content: ""
+      border-top: 6vw solid transparent
+      border-bottom: 6vw solid transparent
+      border-right: 6vw solid tuned
+      will-change: visibility
+
+
+  .gauge
+    position: relative
+    height: 25vw
+    width: 100%
+    display: grid
+    align-items: center
+    svg
+      position: absolute
+      left: -100%
+      top: 0
+      width: 300%
+    .needle
+      z-index: 0
+      &::before
+        content: ""
+        position: absolute
+        width: 0
+        height: 0
+        bottom: -2vw
+        left: calc( 50% - 2vw )
+        border-left: 2vw solid transparent
+        border-right: 2vw solid transparent
+        border-bottom: 14vw solid secondary
+      &::after
+        content: ""
+        position: absolute
+        width: 4vw
+        height 4vw
+        bottom: -6vw
+        left: calc( 50% - 2vw )
+        border-radius: 0 0 50% 50%
+        background-color: secondary
+        box-shadow: 0 -2vw 8vw .5vw orange
+        z-index: -1
+      .cent
+        font-size: 2vw
+        position: absolute
+        width: 100%
+        text-align: center
+        bottom: -4vw
+        color: firebrick
+
+.wrapper[data-tuned="low"]
+  .note_freq
+    &:before
+      visibility: hidden
+
+.wrapper[data-tuned="high"]
+  .note_freq
+    &:after
+      visibility: hidden
+
+.wrapper[data-tuned="tuned"]
+  .note_freq
+    color: tuned
+  .needle
+    .cent
+      color: green
+    &:after
+      box-shadow: 0 -2vw 7vw .5vw rgba(60, 200, 30, .8)
