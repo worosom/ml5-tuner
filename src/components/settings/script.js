@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      inputs: [{label: "Default"}]
+      inputs: [{deviceId: "default"}]
     }
   },
   async mounted() {
@@ -25,7 +25,7 @@ export default {
     input: {
       get() {
         const stored_input = window.localStorage.getItem('input')
-        if (!stored_input) {
+        if (!stored_input || stored_input === 'undefined') {
           this.input = this.inputs[0].deviceId;
           return this.inputs[0].deviceId
         }
