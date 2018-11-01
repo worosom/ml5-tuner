@@ -1,6 +1,7 @@
 <template lang="pug">
   #app(:data-loading="loading")
     tuner(v-on:loaded="loading = false")
+    github-corners(repo="worosom/ml5-tuner" bg-color="#000" color="#AAA")
 </template>
 
 <script>
@@ -32,5 +33,12 @@ body, html
   height: 100%
   font-family: "Source Code Pro", monospace
   margin: 0
+
+.github-corner
+  svg
+    position: fixed !important
+    top: unset !important
+    bottom: 0 !important
+    transform: rotate(90deg)
 
 </style>

@@ -7957,6 +7957,11 @@ vue-eslint-parser@^3.2.1:
     esquery "^1.0.1"
     lodash "^4.17.10"
 
+vue-gh-corners@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/vue-gh-corners/-/vue-gh-corners-2.0.0.tgz#83e216db10945c85f4955a97022bf4623bb596e3"
+  integrity sha512-DJ13OlNIAxgEIkUvXJxDJHWukegMz3DuCS099esVePFk/d+ZfjDy/cVRS1OrgpL/50ECwyi7TpYBIiUYD25Luw==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"

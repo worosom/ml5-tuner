@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     async init(deviceId) {
+      let AudioContext = window.AudioContext || window.webkitAudioContext;
       this.audioContext = new AudioContext();
       this.microphoneStream = await this.mic(deviceId);
       if (this.microphoneStream) this.startPitch();
@@ -43,7 +44,7 @@ export default {
       if (navigator.mediaDevices) {
         return navigator.mediaDevices.getUserMedia({
           audio: {
-            deviceId: deviceId ? deviceId : 'default'
+            deviceId: deviceId || 'default'
           }
         });
       } else {
