@@ -12,8 +12,10 @@ export default {
       const devices = await navigator.mediaDevices.enumerateDevices()
       return devices.filter((d) => d.kind === 'audioinput')
     },
-    async updateInputs() {
-      this.inputs = await this.enumerateInputs()
+    updateInputs() {
+      this.enumerateInputs().then((inputs) => {
+        this.inputs = inputs
+      })
     }
   },
   computed: {
