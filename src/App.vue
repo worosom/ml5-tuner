@@ -21,6 +21,7 @@ export default {
   }
 }
 </script>
+
 <style lang="stylus">
 #app
   height: 100%
@@ -40,5 +41,4 @@ body, html
     top: unset !important
     bottom: 0 !important
     transform: rotate(90deg)
-
 </style>
