@@ -6,13 +6,11 @@
 
 <script>
 import Tuner from './components/tuner'
-import About from './components/about'
 
 export default {
   name: 'app',
   components: {
-    Tuner,
-    About
+    Tuner
   },
   data() {
     return {
