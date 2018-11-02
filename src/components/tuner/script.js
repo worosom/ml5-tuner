@@ -41,12 +41,15 @@ export default {
       if (this.microphoneStream) this.startPitch();
     },
     mic(deviceId) {
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
       if (navigator.mediaDevices) {
         return navigator.mediaDevices.getUserMedia({
           audio: {
             deviceId: deviceId || 'default'
           }
         });
+      } else if (navigator.getUserMedia) {
+        return navigator.mediaDevices.getUserMedia({ audio: true, video: false });
       } else {
         // eslint-disable-next-line
         console.log('This browser does not support WebAudio')
